@@ -19,10 +19,12 @@ Transformar el antiguo sitio web WordPress en un Ecosistema digital propietario 
 - **Editor de Historias Clínicas:** Bloc de notas seguro para guardar los expedientes electrónicos de cada paciente de forma cifrada.
 - **CMS Interno (Editor de Textos):** Zona donde el terapeuta puede redactar nuevos artículos, agregarles categorías ("Ansiedad", "Depresión", "Vida Cristiana"), subir la imagen de portada y publicar directo en el portal público.
 
-### 2.4 Módulo Administrativo & Operativo
-- Control de pagos y facturación.
-- Asignación manual o revisión de terapeutas.
-- Moderación de los artículos escritos antes de salir al público.
+### 2.4 Módulo de Pagos (MVP - Enfoque P2P Manual)
+- **Carga de Datos de Cobro:** Cada Terapeuta (prestador) podrá guardar la configuración manual de sus cuentas de cobro (Mercado Pago, Zelle, Airtm, Binance Pay, PayPal).
+- **Flujo estilo P2P (Binance):** Al momento de agendar, el paciente recibe los datos bancarios/wallet del terapeuta elegido, realiza la transferencia por fuera del sistema y debe "Avisar/Cargar comprobante" de pago.
+- **Conciliación de Citas:** El Terapeuta revisa su cuenta personal, y si el dinero llegó, hace clic en "Confirmar Pago y Cita" dentro del sistema. (La automatización total vía API con pasarelas quedará como una Fase 2 a futuro).
+
+### 2.5 Módulo Administrativo & Operativo
 
 ## 3. Experiencia de Usuario (UI/UX)
 - Se prioriza un esquema de diseño moderno, usando paletas de colores que transmitan **paz, calidez y frescura** (evitar entornos clínicos fríos).

@@ -16,6 +16,7 @@ erDiagram
         enum role "ADMIN, TERAPEUTA"
         string firstName
         string lastName
+        jsonb paymentMethods "Ej: {binance: 'id...', zelle: 'correo'}"
         boolean isActive
     }
 

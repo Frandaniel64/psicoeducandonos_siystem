@@ -28,6 +28,7 @@ Este documento enumera las tareas requeridas para construir el motor de reglas d
 - [ ] Endpoints **Públicos** (GET) rápidos para consumir el blog (con soporte de páginado para el frontend).
 - [ ] Endpoints **Privados** (POST/PUT/DELETE) exclusivos para el rol `TERAPEUTA` y `ADMIN` para crear los posts.
 
-## 💳 Fase 6: Integraciones Finales (Opcional MVP)
-- [ ] Stripe / MercadoPago API: Crear intención de cobro antes de confirmar `Appointment`.
-- [ ] Envío de correos automáticos (Resend/Nodemailer) cuando se confirme una cita.
+## 💳 Fase 6: Sistema de Cobro Manual (MVP P2P)
+- [ ] Ampliar tabla `User` (o crear `PaymentProfile`) para que el terapeuta guarde sus billeteras y correos Zelle/Paypal/Binance de forma segura.
+- [ ] Modificar la tabla `Appointment` para incluir estados de pago: `PENDING_PAYMENT`, `PAYMENT_UPLOADED`, `PAYMENT_VERIFIED`.
+- [ ] Endpoint para que los Doctores puedan "Aprobar el comprobante de pago" de una sesión.
