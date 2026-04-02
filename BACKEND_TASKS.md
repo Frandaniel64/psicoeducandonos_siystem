@@ -3,7 +3,7 @@
 Este documento enumera las tareas requeridas para construir el motor de reglas de negocio y almacenamiento del Sistema Psicoeducándonos.
 
 ## 📦 Fase 1: Arquitectura y Base de Datos
-- [ ] Configurar conexión con **PostgreSQL** mediante TypeORM (o Prisma).
+- [x] Configurar conexión con **PostgreSQL** mediante TypeORM (o Prisma).
 - [ ] Crear el esquema inicial de entidades en la base de datos basándose en los módulos definidos.
 - [ ] Configurar validadores globales (`class-validator` y `class-transformer` de NestJS).
 
