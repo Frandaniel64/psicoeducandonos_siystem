@@ -3,20 +3,68 @@ module.exports = {
   content: [
     "./src/**/*.{html,ts}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        brand: {
-          light: '#f1f5f9',
-          DEFAULT: '#3b82f6', // Azul que denota calma y confianza
-          dark: '#1e3a8a',
-          accent: '#10b981', // Verde suave para esperanza/vida
-        }
+        "on-tertiary-fixed-variant": "#214d52",
+        "surface-container": "#ececff",
+        "secondary": "#585d78",
+        "on-error": "#ffffff",
+        "inverse-primary": "#96ccff",
+        "surface-bright": "#fbf8ff",
+        "primary-container": "#3c79ab",
+        "surface": "#fbf8ff",
+        "on-primary-fixed": "#001d32",
+        "tertiary-fixed": "#beeaf0",
+        "on-secondary-container": "#5c617d",
+        "on-primary-fixed-variant": "#004a75",
+        "secondary-fixed": "#dde1ff",
+        "on-tertiary-container": "#f5feff",
+        "on-tertiary-fixed": "#002023",
+        "secondary-container": "#dadeff",
+        "primary-fixed": "#cee5ff",
+        "surface-tint": "#206393",
+        "outline": "#717880",
+        "on-error-container": "#93000a",
+        "error-container": "#ffdad6",
+        "on-primary": "#ffffff",
+        "on-background": "#151a32",
+        "error": "#ba1a1a",
+        "inverse-surface": "#2a2f48",
+        "tertiary-fixed-dim": "#a2ced3",
+        "tertiary-container": "#517b80",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-low": "#f3f2ff",
+        "inverse-on-surface": "#f0efff",
+        "surface-dim": "#d4d8f9",
+        "on-tertiary": "#ffffff",
+        "surface-container-highest": "#dde1ff",
+        "on-surface": "#151a32",
+        "on-secondary-fixed-variant": "#404560",
+        "surface-variant": "#dde1ff",
+        "on-surface-variant": "#41474f",
+        "surface-container-high": "#e5e7ff",
+        "on-primary-container": "#fdfcff",
+        "background": "#fbf8ff",
+        "on-secondary": "#ffffff",
+        "primary-fixed-dim": "#96ccff",
+        "tertiary": "#386367",
+        "outline-variant": "#c1c7d0",
+        "secondary-fixed-dim": "#c1c5e5",
+        "primary": "#1c6090",
+        "on-secondary-fixed": "#151a32"
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      }
+        "headline": ["Newsreader", "serif"],
+        "body": ["Inter", "sans-serif"],
+        "label": ["Inter", "sans-serif"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/container-queries'),
+  ],
 }
