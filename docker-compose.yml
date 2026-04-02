@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # 1. Base de datos PostgreSQL
+  db:
+    image: postgres:15-alpine
+    container_name: psico_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: psicoeducandonos
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # 2. Servidor Backend API (NestJS)
+  backend:
+    build:
+      context: ./backend
+      # Se requiere un Dockerfile en ./backend en el futuro
+    container_name: psico_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://admin:password123@db:5432/psicoeducandonos?schema=public
+      - JWT_SECRET=super_secret_dev_key
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+
+  # 3. Servidor Frontend (Angular)
+  frontend:
+    build:
+      context: ./frontend
+      # Se requiere un Dockerfile en ./frontend en el futuro
+    container_name: psico_frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+
+volumes:
+  postgres_data:
