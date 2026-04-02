@@ -1,0 +1,29 @@
+# Dependencias y paquetes
+node_modules/
+/node_modules
+*/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Builds y compilados
+dist/
+/dist
+build/
+/build
+
+# Variables de entorno y secretos
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Archivos de SO
+.DS_Store
+Thumbs.db
+
+# Configuraciones de editores
+.idea/
+.vscode/
+*.swp
+*.swo
