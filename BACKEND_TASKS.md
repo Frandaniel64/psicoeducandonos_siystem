@@ -20,8 +20,9 @@ Este documento enumera las tareas requeridas para construir el motor de reglas d
 
 ## 📅 Fase 4: Agendamiento (Appointments)
 - [ ] Crear entidad `Appointment` (Campos: Fecha, Estado, Tipo [Presencial/Online], Enlace de Reunión).
-- [ ] Lógica para validar que un terapeuta no tenga solapamientos de horario (Conflictos de citas).
-- [ ] Endpoints para: *Agendar*, *Posponer* y *Cancelar* cita.
+- [ ] Implementar Estados de Cita: `PENDING_REVIEW` (Slot bloqueado), `PAYMENT_DELAYED` (Esperando clearing bancario), `CONFIRMED`, `REJECTED`.
+- [ ] Lógica de Bloqueo: Al solicitar cita, el espacio se bloquea automáticamente evitando solapamientos. El terapeuta tiene el control total para mantenerla en espera o cancelarla si el pago falla.
+- [ ] Endpoint para que el Terapeuta confirme la cita adjuntando el enlace de Google Meet / Zoom en su respuesta.
 
 ## 📰 Fase 5: Módulo de Contenido (CMS)
 - [ ] Crear entidades: `Article` (Título, Contenido HTML/Markdown, Portada, Estado [Draft/Published]) y `Category`.
@@ -29,6 +30,7 @@ Este documento enumera las tareas requeridas para construir el motor de reglas d
 - [ ] Endpoints **Privados** (POST/PUT/DELETE) exclusivos para el rol `TERAPEUTA` y `ADMIN` para crear los posts.
 
 ## 💳 Fase 6: Sistema de Cobro Manual (MVP P2P)
-- [ ] Ampliar tabla `User` (o crear `PaymentProfile`) para que el terapeuta guarde sus billeteras y correos Zelle/Paypal/Binance de forma segura.
-- [ ] Modificar la tabla `Appointment` para incluir estados de pago: `PENDING_PAYMENT`, `PAYMENT_UPLOADED`, `PAYMENT_VERIFIED`.
-- [ ] Endpoint para que los Doctores puedan "Aprobar el comprobante de pago" de una sesión.
+- [ ] Ampliar tabla `User` (o crear `PaymentProfile`) para guardar credenciales P2P (Zelle/Local/Binance).
+- [ ] **Guardrail de Negocio:** Lógica en el backend que impida mostrar la agenda de un Terapeuta si no tiene al menos un método de pago P2P validado.
+- [ ] Enlace del comprobante (Screenshot) generado directamente dentro del Payload de la reserva.
+- [ ] Endpoint para que el terapeuta pueda aprobar el pago (Confirmando la cita) o notificar que el clearing sigue pendiente, disparando alertas por WhatsApp/Email.

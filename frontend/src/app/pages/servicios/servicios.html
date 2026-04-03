@@ -1,0 +1,45 @@
+<section class="py-24 bg-surface min-h-[80vh]">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="text-center mb-20 max-w-2xl mx-auto">
+      <span class="text-primary font-bold tracking-widest text-sm uppercase mb-4 block">Nuestros Servicios</span>
+      <h1 class="font-headline text-5xl mb-6 text-on-background">Acompañamiento a tu Medida</h1>
+      <p class="text-lg text-on-surface-variant leading-relaxed">
+        Descubre cómo podemos ayudarte a reconectar contigo mismo. Ofrecemos herramientas prácticas y un acompañamiento profesional donde la ciencia encuentra la fe.
+      </p>
+    </div>
+
+    <div class="space-y-16">
+      @for (service of servicesList; track service.id; let isEven = $even) {
+        <div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm flex flex-col md:flex-row hover:shadow-lg transition-shadow duration-500 border border-surface-container" 
+             [class.md:flex-row-reverse]="!isEven">
+          
+          <!-- Image Section -->
+          <div class="w-full md:w-1/2 md:aspect-square lg:aspect-auto lg:h-[500px] overflow-hidden">
+             <img [src]="service.imageUrl" [alt]="service.title" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+
+          <!-- Content Section -->
+          <div class="w-full md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+            <span class="material-symbols-outlined text-5xl text-primary mb-6">{{service.icon}}</span>
+            <h2 class="font-headline text-3xl md:text-4xl mb-4 text-on-surface">{{service.title}}</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed mb-8">{{service.description}}</p>
+            
+            <ul class="space-y-4 mb-10">
+              @for (bullet of service.bullets; track bullet) {
+                <li class="flex items-start gap-4">
+                  <span class="material-symbols-outlined text-primary-container mt-0.5">verified</span>
+                  <span class="text-on-surface font-medium">{{bullet}}</span>
+                </li>
+              }
+            </ul>
+
+            <button class="w-fit custom-gradient text-on-primary px-8 py-4 rounded-full font-bold shadow-sm hover:scale-105 transition-transform">
+              {{service.ctaText}}
+            </button>
+          </div>
+
+        </div>
+      }
+    </div>
+  </div>
+</section>

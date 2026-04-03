@@ -9,9 +9,9 @@
 <p class="text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed">
                         Acompañamiento psicológico online para reconectar contigo mismo y con tu propósito, integrando ciencia y fe en un entorno seguro.
                     </p>
-<div class="flex flex-wrap gap-4">
-<button class="custom-gradient text-on-primary px-8 py-4 rounded-full text-lg font-semibold hover:opacity-90 transition-opacity">Reserva tu 1° Sesión</button>
-<button class="border border-outline-variant text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-surface-container-low transition-colors">Explorar Talleres</button>
+<div class="flex flex-wrap gap-4 mt-6">
+<a routerLink="/nosotros" class="custom-gradient text-on-primary px-8 py-4 rounded-full text-lg font-semibold hover:opacity-90 transition-opacity shadow-lg">Reserva tu 1° Sesión</a>
+<a routerLink="/servicios" class="border filter border-outline-variant text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-surface-container-low transition-colors">Explorar Talleres</a>
 </div>
 </div>
 <div class="lg:col-span-5 relative">
@@ -187,8 +187,7 @@
 </div>
 </section>
 </main>
-<!-- FAB -->
-<button class="fixed bottom-8 right-8 custom-gradient text-on-primary p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform z-50">
+<a routerLink="/nosotros" class="fixed bottom-8 right-8 custom-gradient text-on-primary p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform z-50 cursor-pointer">
 <span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
 <span class="font-bold pr-2">Hablar con un especialista</span>
-</button>
+</a>
