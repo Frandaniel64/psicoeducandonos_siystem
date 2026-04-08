@@ -28,3 +28,12 @@ Este documento detalla las tareas secuenciales para armar la interfaz pública, 
 - [ ] **Gestión de Citas (Calendario General)**: Ver el día/semana en modo cuadrícula para tener panorama total de horas de trabajo.
 - [ ] **Panel de Pacientes**: Vista que liste sus pacientes a cargo y, al dar click, desglose el perfil y permita llenar la *Historia Clínica* de forma simple.
 - [x] **Editor del CMS**: Integrar una librería de texto enriquecido (Ej. *Quill.js* o *TipTap*) dentro de un formulario Reactivo de Angular donde el terapeuta podrá publicar sus posts psicoeducativos.
+
+## ✅ Hallazgos Home E2E (2026-04-07)
+- [x] **FE-H001 [P1][S]** CTA de servicios "Ver más detalles" y "Ver próximos inicios" con navegación real.
+- [x] **FE-H003 [P1][S]** Tarjetas del blog del home con navegación real.
+- [x] **FE-H006 [P1][S]** Resolver overlay FAB vs footer para no bloquear "Portal de Terapeutas".
+- [x] **FE-H002 [P1][M]** FAQ acordeón funcional con estado y `aria-expanded`.
+- [x] **FE-H005 [P1][M]** Newsletter con validación y feedback (`loading/success/error`).
+- [x] **FE-H007 [P1][M]** Docker dev frontend robustecido para evitar drift de `node_modules`.
+- [x] **FE-H004 [P2][S]** Footer sin `href="#"`, con rutas/enlaces reales.

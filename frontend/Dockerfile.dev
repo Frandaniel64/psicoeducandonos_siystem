@@ -10,7 +10,7 @@ RUN apk update && apk add bash
 COPY package*.json ./
 
 # Install dependencies local
-RUN npm install
+RUN npm ci
 
 # We don't copy the rest here, because docker-compose volumes will mount the host directory
 # and override everything.

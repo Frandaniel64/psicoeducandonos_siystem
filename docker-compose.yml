@@ -32,7 +32,7 @@ services:
     depends_on:
       - db
     # Usamos esto para que recompile automágicamente cuando cambies un archivo
-    command: npm run start:dev
+    command: sh -c "npm ci && npm run start:dev"
 
   # Frontend: Angular
   frontend:
@@ -45,9 +45,10 @@ services:
       - '4200:4200'
     volumes:
       - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
-    # El flag --host 0.0.0.0 es crítico en docker para que el puerto sea accesible desde fura
-    command: npm start -- --host 0.0.0.0 --poll 2000 
+      - frontend_node_modules:/usr/src/app/node_modules
+    # Sincroniza dependencias del contenedor con package-lock para evitar drift en node_modules.
+    command: sh -c "npm ci && npm start -- --host 0.0.0.0 --poll 2000"
 
 volumes:
   pgdata:
+  frontend_node_modules:

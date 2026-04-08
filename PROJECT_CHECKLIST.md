@@ -148,3 +148,4 @@ Lista única para **seguir el avance hasta culminar el proyecto**. Los agentes d
 _Aquí puede el equipo escribir fecha o comentario corto al cerrar hitos mayores._
 
 - Última revisión de checklist: *(rellenar)*
+- Última revisión de checklist: 2026-04-08 (backend home: newsletter público + payload blog con `id/slug` + fuente API para enlaces footer; CMS completo y endpoints privados de blog siguen pendientes)

@@ -62,7 +62,7 @@
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-12 flex flex-col justify-end">
 <h3 class="font-headline text-3xl text-white mb-4">Terapia 1 a 1</h3>
 <p class="text-white/80 text-lg mb-6">Sesiones personalizadas de 50 minutos enfocadas en tus objetivos específicos de salud mental.</p>
-<button class="bg-white text-primary w-fit px-8 py-3 rounded-full font-bold">Ver más detalles</button>
+<a routerLink="/servicios" class="bg-white text-primary w-fit px-8 py-3 rounded-full font-bold no-underline">Ver más detalles</a>
 </div>
 </div>
 <div class="group relative overflow-hidden rounded-3xl h-[500px] lg:mt-12">
@@ -70,7 +70,7 @@
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-12 flex flex-col justify-end">
 <h3 class="font-headline text-3xl text-white mb-4">Talleres Grupales</h3>
 <p class="text-white/80 text-lg mb-6">Crece en comunidad con nuestros programas especializados en gestión emocional y valores.</p>
-<button class="bg-white text-primary w-fit px-8 py-3 rounded-full font-bold">Ver próximos inicios</button>
+<a routerLink="/agendar" class="bg-white text-primary w-fit px-8 py-3 rounded-full font-bold no-underline">Ver próximos inicios</a>
 </div>
 </div>
 </div>
@@ -125,32 +125,32 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- Post 1 -->
-<div class="group cursor-pointer">
-<div class="rounded-2xl overflow-hidden aspect-video mb-6 relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Person sitting by a peaceful lake at dawn meditating, soft golden hour colors reflecting on water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK8Hq_laqbpLCTybOnQj2x3dEXWDgrd_wDYCz4Ibtdww49grkRbgDCXKETDRsGiKI03x5ftDrNm83zvkLj_Ya0Ea0O1vaiXBdQ-rb3a4qLm4-TnCANhtsuPaz8QvYFkTiNbCNZe3v6H5X8ADnCxlknm7jSSD-_f-iNG66QOUko9wf9WLxGHEO2tRx8V5eXNmwnybm8u3e6X5wvAB711c6hdDf7eg9-yBi3A0eju1NaQZ083S4qqbO1okQNowU4hQNtS2hsqYG0aJW3"/>
-<span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Salud Mental</span>
-</div>
-<h3 class="font-headline text-xl mb-2 group-hover:text-primary transition-colors">5 Pasos para calmar la ansiedad en momentos de crisis</h3>
-<p class="text-sm text-on-surface-variant">Hace 2 días • 6 min lectura</p>
-</div>
+<a [routerLink]="['/blog', '1']" class="group cursor-pointer no-underline text-inherit block">
+  <div class="rounded-2xl overflow-hidden aspect-video mb-6 relative">
+    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Person sitting by a peaceful lake at dawn meditating, soft golden hour colors reflecting on water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK8Hq_laqbpLCTybOnQj2x3dEXWDgrd_wDYCz4Ibtdww49grkRbgDCXKETDRsGiKI03x5ftDrNm83zvkLj_Ya0Ea0O1vaiXBdQ-rb3a4qLm4-TnCANhtsuPaz8QvYFkTiNbCNZe3v6H5X8ADnCxlknm7jSSD-_f-iNG66QOUko9wf9WLxGHEO2tRx8V5eXNmwnybm8u3e6X5wvAB711c6hdDf7eg9-yBi3A0eju1NaQZ083S4qqbO1okQNowU4hQNtS2hsqYG0aJW3"/>
+    <span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Salud Mental</span>
+  </div>
+  <h3 class="font-headline text-xl mb-2 group-hover:text-primary transition-colors">5 Pasos para calmar la ansiedad en momentos de crisis</h3>
+  <p class="text-sm text-on-surface-variant">Hace 2 días • 6 min lectura</p>
+</a>
 <!-- Post 2 -->
-<div class="group cursor-pointer">
-<div class="rounded-2xl overflow-hidden aspect-video mb-6 relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Open bible on a wooden table with soft candlelight and a cup of tea nearby in a warm study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8qJmNMNibylxnWcUbxLYo3cJt15GVUOO6zITXBUd5xbWSidnlNz5px4Er20B0vXFtzGJTzh4eNOFKSfgB97GEdqOLgbfYVTTuA19hzsqBEmVnOn0CjQRZok6gaib2PlJ6Mipte0Hz4S7rHGadQ6dCvihvrYlqvMP12htpMzomIJSfWU_OMzlIGeTOTd6XvsKOye-LW3fTbyzcoHBeEptKMX6oTsJcCD_lJGmUN0f-bQIxphzyHMGLs-85UrN32HDvX1YzLCqv5afP"/>
-<span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Vida Cristiana</span>
-</div>
-<h3 class="font-headline text-xl mb-2 group-hover:text-primary transition-colors">La oración como herramienta de regulación emocional</h3>
-<p class="text-sm text-on-surface-variant">Hace 1 semana • 8 min lectura</p>
-</div>
+<a [routerLink]="['/blog', '2']" class="group cursor-pointer no-underline text-inherit block">
+  <div class="rounded-2xl overflow-hidden aspect-video mb-6 relative">
+    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Open bible on a wooden table with soft candlelight and a cup of tea nearby in a warm study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8qJmNMNibylxnWcUbxLYo3cJt15GVUOO6zITXBUd5xbWSidnlNz5px4Er20B0vXFtzGJTzh4eNOFKSfgB97GEdqOLgbfYVTTuA19hzsqBEmVnOn0CjQRZok6gaib2PlJ6Mipte0Hz4S7rHGadQ6dCvihvrYlqvMP12htpMzomIJSfWU_OMzlIGeTOTd6XvsKOye-LW3fTbyzcoHBeEptKMX6oTsJcCD_lJGmUN0f-bQIxphzyHMGLs-85UrN32HDvX1YzLCqv5afP"/>
+    <span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Vida Cristiana</span>
+  </div>
+  <h3 class="font-headline text-xl mb-2 group-hover:text-primary transition-colors">La oración como herramienta de regulación emocional</h3>
+  <p class="text-sm text-on-surface-variant">Hace 1 semana • 8 min lectura</p>
+</a>
 <!-- Post 3 -->
-<div class="group cursor-pointer">
-<div class="rounded-2xl overflow-hidden aspect-video mb-6 relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Golden sunrise over a misty forest valley, symbolizing a new beginning and hope" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfJq66qQOHFMQIe7M0OMW4mnDeYdKn8H77-1hN6XNMhdxT9CArsemWPfep8fX7meh8wPzHmM9w5N8yjGirOxML_MyYGYA5hIDZVJxzdiGnEkHzhs969KeqBwrmlzQjgT0uZ56dJkNvW0uwirkgQ0WD3u5tPhGf2xAyKFPQ64tdut36nPvuofyfIeCRu_dqwJOOAboFmF8DFTwRRjsgty_102rt_8Y54mHtda7HSziMyUFdapzW17ZePYW0fOHFmxKpDQ6nry273ZnN"/>
-<span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Bienestar</span>
-</div>
-<h3 class="font-headline text-xl mb-2 group-hover:text-primary transition-colors">Reencontrando la alegría después de una pérdida significativa</h3>
-<p class="text-sm text-on-surface-variant">Hace 2 semanas • 10 min lectura</p>
-</div>
+<a [routerLink]="['/blog', '3']" class="group cursor-pointer no-underline text-inherit block">
+  <div class="rounded-2xl overflow-hidden aspect-video mb-6 relative">
+    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Golden sunrise over a misty forest valley, symbolizing a new beginning and hope" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfJq66qQOHFMQIe7M0OMW4mnDeYdKn8H77-1hN6XNMhdxT9CArsemWPfep8fX7meh8wPzHmM9w5N8yjGirOxML_MyYGYA5hIDZVJxzdiGnEkHzhs969KeqBwrmlzQjgT0uZ56dJkNvW0uwirkgQ0WD3u5tPhGf2xAyKFPQ64tdut36nPvuofyfIeCRu_dqwJOOAboFmF8DFTwRRjsgty_102rt_8Y54mHtda7HSziMyUFdapzW17ZePYW0fOHFmxKpDQ6nry273ZnN"/>
+    <span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Bienestar</span>
+  </div>
+  <h3 class="font-headline text-xl mb-2 group-hover:text-primary transition-colors">Reencontrando la alegría después de una pérdida significativa</h3>
+  <p class="text-sm text-on-surface-variant">Hace 2 semanas • 10 min lectura</p>
+</a>
 </div>
 </div>
 </section>
@@ -159,35 +159,48 @@
 <div class="max-w-3xl mx-auto px-8">
 <h2 class="font-headline text-4xl text-center mb-12">Preguntas Frecuentes</h2>
 <div class="space-y-4">
-<div class="bg-surface-container-lowest rounded-xl overflow-hidden">
-<button class="w-full flex justify-between items-center p-6 text-left hover:bg-surface-container-high transition-colors">
-<span class="font-semibold">¿Cómo sé si necesito terapia?</span>
-<span class="material-symbols-outlined text-primary" data-icon="expand_more">expand_more</span>
-</button>
-</div>
-<div class="bg-surface-container-lowest rounded-xl overflow-hidden">
-<button class="w-full flex justify-between items-center p-6 text-left hover:bg-surface-container-high transition-colors">
-<span class="font-semibold">¿Es necesario ser creyente para acudir a consulta?</span>
-<span class="material-symbols-outlined text-primary" data-icon="expand_more">expand_more</span>
-</button>
-</div>
-<div class="bg-surface-container-lowest rounded-xl overflow-hidden">
-<button class="w-full flex justify-between items-center p-6 text-left hover:bg-surface-container-high transition-colors">
-<span class="font-semibold">¿Cómo funcionan las sesiones online?</span>
-<span class="material-symbols-outlined text-primary" data-icon="expand_more">expand_more</span>
-</button>
-</div>
-<div class="bg-surface-container-lowest rounded-xl overflow-hidden">
-<button class="w-full flex justify-between items-center p-6 text-left hover:bg-surface-container-high transition-colors">
-<span class="font-semibold">¿Qué métodos de pago aceptan?</span>
-<span class="material-symbols-outlined text-primary" data-icon="expand_more">expand_more</span>
-</button>
-</div>
+  @for (faq of faqs; track faq.question; let i = $index) {
+    <div class="bg-surface-container-lowest rounded-xl overflow-hidden">
+      <button
+        type="button"
+        class="w-full flex justify-between items-center p-6 text-left hover:bg-surface-container-high transition-colors"
+        [attr.aria-expanded]="activeFaqIndex() === i"
+        [attr.aria-controls]="'faq-panel-' + i"
+        [id]="'faq-button-' + i"
+        (click)="toggleFaq(i)"
+      >
+        <span class="font-semibold">{{ faq.question }}</span>
+        <span
+          class="material-symbols-outlined text-primary transition-transform"
+          [class.rotate-180]="activeFaqIndex() === i"
+          data-icon="expand_more"
+        >
+          expand_more
+        </span>
+      </button>
+
+      @if (activeFaqIndex() === i) {
+        <div
+          class="px-6 pb-6 text-on-surface-variant leading-relaxed"
+          role="region"
+          [id]="'faq-panel-' + i"
+          [attr.aria-labelledby]="'faq-button-' + i"
+        >
+          {{ faq.answer }}
+        </div>
+      }
+    </div>
+  }
 </div>
 </div>
 </section>
 </main>
-<a routerLink="/nosotros" class="fixed bottom-8 right-8 custom-gradient text-on-primary p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform z-50 cursor-pointer">
+<a
+  routerLink="/nosotros"
+  class="fixed bottom-8 right-8 custom-gradient text-on-primary p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-all z-50 cursor-pointer"
+  [class.opacity-0]="isFabHidden()"
+  [class.pointer-events-none]="isFabHidden()"
+>
 <span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
 <span class="font-bold pr-2">Hablar con un especialista</span>
 </a>
