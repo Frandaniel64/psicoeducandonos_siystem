@@ -1,0 +1,29 @@
+<!-- Referencia: Stitch "Directorio de Pacientes" — proyecto 16913179476535550712 -->
+<div class="max-w-5xl mx-auto p-6 md:p-10">
+  <h1 class="font-headline text-3xl text-slate-900 mb-2">Pacientes</h1>
+  <p class="text-slate-600 mb-8">
+    Derivado de tus citas hasta existir un endpoint dedicado. La historia clínica requiere API (véase checklist backend).
+  </p>
+
+  @if (loading()) {
+    <p class="text-slate-600">Cargando…</p>
+  } @else if (error(); as err) {
+    <div class="rounded-lg bg-red-50 text-red-800 px-4 py-3 text-sm">{{ err }}</div>
+  } @else if (patients().length === 0) {
+    <p class="text-slate-600">Aún no hay pacientes con citas contigo.</p>
+  } @else {
+    <ul class="space-y-3">
+      @for (p of patients(); track p.id) {
+        <li
+          class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm"
+        >
+          <div>
+            <p class="font-semibold text-slate-900">{{ p.firstName }} {{ p.lastName }}</p>
+            <p class="text-sm text-slate-500">{{ p.email }}</p>
+          </div>
+          <span class="text-sm text-slate-400">Historia clínica: pendiente API</span>
+        </li>
+      }
+    </ul>
+  }
+</div>

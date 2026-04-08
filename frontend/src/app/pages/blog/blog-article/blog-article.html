@@ -1,0 +1,23 @@
+<section class="py-16 bg-surface min-h-[70vh]">
+  <div class="max-w-3xl mx-auto px-8">
+    @if (post(); as p) {
+      <a routerLink="/blog" class="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline mb-8">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        Volver al blog
+      </a>
+      <p class="text-xs font-bold uppercase tracking-wider text-tertiary-container mb-3">{{ p.category }}</p>
+      <h1 class="font-headline text-4xl md:text-5xl text-on-background mb-4 leading-tight">{{ p.title }}</h1>
+      <p class="text-on-surface-variant text-sm mb-10">{{ p.publishDate }} · {{ p.readTime }} min lectura</p>
+      <div class="rounded-2xl overflow-hidden aspect-video mb-12 shadow-soft-lg">
+        <img [src]="p.imageUrl" [alt]="p.title" class="w-full h-full object-cover" />
+      </div>
+      <div
+        class="article-body space-y-4 text-on-surface leading-relaxed [&_h2]:font-headline [&_h2]:text-2xl [&_h2]:mt-8 [&_h2]:mb-3 [&_ul]:pl-6 [&_ol]:pl-6"
+        [innerHTML]="bodyHtml()"
+      ></div>
+    } @else {
+      <p class="text-on-surface-variant mb-6">No encontramos este artículo.</p>
+      <a routerLink="/blog" class="text-primary font-semibold hover:underline">Volver al blog</a>
+    }
+  </div>
+</section>

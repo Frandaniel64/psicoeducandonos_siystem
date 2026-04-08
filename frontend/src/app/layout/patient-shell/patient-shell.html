@@ -1,0 +1,66 @@
+<div class="min-h-screen flex bg-surface-container-low">
+  <!-- Referencia visual: Stitch "Dashboard del Paciente (Desktop)" / "Historial de Citas (Paciente)" — proyecto 16913179476535550712 -->
+  <aside
+    class="hidden md:flex w-64 flex-col border-r border-outline-variant/20 bg-surface-container-lowest shrink-0"
+    aria-label="Navegación del paciente"
+  >
+    <div class="p-6 border-b border-outline-variant/15">
+      <p class="font-headline text-xl text-primary">Psicoeducándonos</p>
+      <p class="text-xs text-on-surface-variant mt-1">Portal del paciente</p>
+    </div>
+    <nav class="flex flex-col gap-1 p-4 flex-1">
+      <a
+        routerLink="/paciente"
+        routerLinkActive="bg-primary-fixed text-on-primary-fixed font-semibold"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="rounded-xl px-4 py-3 text-sm text-on-surface hover:bg-surface-container-high transition-colors"
+        >Inicio</a
+      >
+      <a
+        routerLink="/paciente/citas"
+        routerLinkActive="bg-primary-fixed text-on-primary-fixed font-semibold"
+        class="rounded-xl px-4 py-3 text-sm text-on-surface hover:bg-surface-container-high transition-colors"
+        >Mis citas</a
+      >
+      <a
+        routerLink="/paciente/agendar"
+        routerLinkActive="bg-primary-fixed text-on-primary-fixed font-semibold"
+        class="rounded-xl px-4 py-3 text-sm text-on-surface hover:bg-surface-container-high transition-colors"
+        >Agendar</a
+      >
+      <a
+        routerLink="/paciente/biblioteca"
+        routerLinkActive="bg-primary-fixed text-on-primary-fixed font-semibold"
+        class="rounded-xl px-4 py-3 text-sm text-on-surface hover:bg-surface-container-high transition-colors"
+        >Biblioteca</a
+      >
+    </nav>
+    <div class="p-4 border-t border-outline-variant/15">
+      <button
+        type="button"
+        (click)="logout()"
+        class="w-full text-left rounded-xl px-4 py-3 text-sm text-on-surface-variant hover:bg-error-container/30 hover:text-error transition-colors"
+      >
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0">
+    <header
+      class="md:hidden flex items-center justify-between px-4 py-3 border-b border-outline-variant/20 bg-surface-container-lowest"
+    >
+      <span class="font-headline text-primary">Mi portal</span>
+      <button
+        type="button"
+        (click)="logout()"
+        class="text-sm text-primary font-medium"
+      >
+        Salir
+      </button>
+    </header>
+    <main class="flex-1 p-4 md:p-8 overflow-auto">
+      <router-outlet />
+    </main>
+  </div>
+</div>

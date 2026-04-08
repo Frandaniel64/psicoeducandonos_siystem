@@ -1,0 +1,18 @@
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /usr/src/app
+
+# Install bash and standard utilities for Alpine
+RUN apk update && apk add bash
+
+# Copy package.json to utilize Docker cache layers
+COPY package*.json ./
+
+# Install dependencies local
+RUN npm install
+
+# We don't copy the rest here, because docker-compose volumes will mount the host directory
+# and override everything.
+
+EXPOSE 4200

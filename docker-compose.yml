@@ -1,50 +1,53 @@
 version: '3.8'
 
 services:
-  # 1. Base de datos PostgreSQL
+  # Base de Datos PostgreSQL
   db:
-    image: postgres:15-alpine
-    container_name: psico_db
+    image: postgres:16-alpine
+    container_name: psicoeducandonos_db
+    restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password123
-      POSTGRES_DB: psicoeducandonos
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: psicoeducandonos_db
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
+      - pgdata:/var/lib/postgresql/data
 
-  # 2. Servidor Backend API (NestJS)
+  # Backend: NestJS
   backend:
     build:
       context: ./backend
-      # Se requiere un Dockerfile en ./backend en el futuro
-    container_name: psico_backend
+      dockerfile: Dockerfile.dev
+    container_name: psicoeducandonos_backend
+    restart: unless-stopped
     ports:
-      - "3000:3000"
-    environment:
-      - DATABASE_URL=postgresql://admin:password123@db:5432/psicoeducandonos?schema=public
-      - JWT_SECRET=super_secret_dev_key
-    depends_on:
-      - db
+      - '3000:3000'
     volumes:
       - ./backend:/usr/src/app
       - /usr/src/app/node_modules
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+    # Usamos esto para que recompile automágicamente cuando cambies un archivo
+    command: npm run start:dev
 
-  # 3. Servidor Frontend (Angular)
+  # Frontend: Angular
   frontend:
     build:
       context: ./frontend
-      # Se requiere un Dockerfile en ./frontend en el futuro
-    container_name: psico_frontend
+      dockerfile: Dockerfile.dev
+    container_name: psicoeducandonos_frontend
+    restart: unless-stopped
     ports:
-      - "4200:4200"
-    depends_on:
-      - backend
+      - '4200:4200'
     volumes:
       - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
+    # El flag --host 0.0.0.0 es crítico en docker para que el puerto sea accesible desde fura
+    command: npm start -- --host 0.0.0.0 --poll 2000 
 
 volumes:
-  postgres_data:
+  pgdata:

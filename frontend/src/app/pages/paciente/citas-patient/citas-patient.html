@@ -1,0 +1,51 @@
+<div class="max-w-4xl">
+  <h1 class="font-headline text-3xl text-on-background mb-2">Mis citas</h1>
+  <p class="text-on-surface-variant mb-8">Estados y enlaces de sesión según lo confirme tu terapeuta.</p>
+
+  @if (loading()) {
+    <p class="text-on-surface-variant">Cargando…</p>
+  } @else if (error(); as err) {
+    <div class="rounded-xl bg-error-container text-on-error-container px-4 py-3 text-sm">{{ err }}</div>
+  } @else if (rows().length === 0) {
+    <div class="rounded-2xl border border-outline-variant/20 bg-surface-container-lowest p-10 text-center">
+      <span class="material-symbols-outlined text-5xl text-outline-variant mb-4">event_busy</span>
+      <p class="text-on-surface-variant">Aún no tienes citas registradas.</p>
+      <a routerLink="/paciente/agendar" class="inline-block mt-6 text-primary font-semibold hover:underline"
+        >Agendar una sesión</a
+      >
+    </div>
+  } @else {
+    <ul class="space-y-4">
+      @for (ap of rows(); track ap.id) {
+        <li
+          class="rounded-2xl border border-outline-variant/15 bg-surface-container-lowest p-6 shadow-soft flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+        >
+          <div>
+            <p class="text-sm font-medium text-primary uppercase tracking-wide">{{ ap.status }}</p>
+            <p class="font-headline text-xl mt-1">{{ ap.scheduledAt | date: 'medium' }}</p>
+            @if (ap.therapist) {
+              <p class="text-sm text-on-surface-variant mt-1">
+                Con {{ ap.therapist.firstName }} {{ ap.therapist.lastName }}
+              </p>
+            }
+          </div>
+          <div class="flex flex-wrap gap-2">
+            @if (ap.meetingLink) {
+              <a
+                [href]="ap.meetingLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full custom-gradient text-on-primary px-5 py-2.5 text-sm font-semibold shadow-soft"
+              >
+                <span class="material-symbols-outlined text-[18px]">video_call</span>
+                Entrar a videollamada
+              </a>
+            } @else {
+              <span class="text-sm text-on-surface-variant self-center">Enlace de reunión pendiente</span>
+            }
+          </div>
+        </li>
+      }
+    </ul>
+  }
+</div>

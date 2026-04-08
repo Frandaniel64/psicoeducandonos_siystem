@@ -1,21 +1,43 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { VersioningType } from '@nestjs/common';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
+import helmet from 'helmet';
+import {
+  getCorsOriginConfig,
+  validateBootstrapEnv,
+} from './bootstrap/validate-env';
 
 async function bootstrap() {
+  validateBootstrapEnv();
+
   const app = await NestFactory.create(AppModule);
 
-  // 1. Prefijo Global (Todas las rutas iniciarán en /api)
+  app.use(
+    helmet({
+      contentSecurityPolicy: false,
+      crossOriginResourcePolicy: { policy: 'cross-origin' },
+    }),
+  );
+
   app.setGlobalPrefix('api');
 
-  // 2. Habilitar Versionamiento (Ej. /api/v1/auth)
   app.enableVersioning({
     type: VersioningType.URI,
     defaultVersion: '1',
   });
 
-  // Habilitar CORS para que el Frontend Angular se pueda conectar sin bloqueos
-  app.enableCors();
+  app.enableCors({
+    origin: getCorsOriginConfig(),
+    credentials: true,
+  });
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
 
   await app.listen(process.env.PORT ?? 3000);
 }

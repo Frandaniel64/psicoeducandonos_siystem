@@ -3,14 +3,14 @@
 Este documento enumera las tareas requeridas para construir el motor de reglas de negocio y almacenamiento del Sistema Psicoeducándonos.
 
 ## 📦 Fase 1: Arquitectura y Base de Datos
-- [x] Configurar conexión con **PostgreSQL** mediante TypeORM (o Prisma).
-- [ ] Crear el esquema inicial de entidades en la base de datos basándose en los módulos definidos.
-- [ ] Configurar validadores globales (`class-validator` y `class-transformer` de NestJS).
+- [x] Configurar conexión con **PostgreSQL** mediante TypeORM (orquestado con Docker).
+- [x] Crear el esquema inicial de entidades en la base de datos basándose en los módulos definidos.
+- [x] Configurar validadores globales (`class-validator` y `class-transformer` de NestJS en main.ts).
 
 ## 🔐 Fase 2: Autenticación y Usuarios Internos (Staff)
-- [ ] Construir la entidad `User` para administración (Campos: Id, Email, Password, Nombres, Rol [ADMIN, TERAPEUTA]).
-- [ ] Construir la entidad separada `Patient` (Campos: Id, Email, Password, Nombres, Teléfono). Los pacientes no se mezclan con los usuarios del panel.
-- [ ] Módulo **Auth**: Implementar Login independiente (Login de Staff vs Login de Pacientes).
+- [x] Construir la entidad `User` para administración (Campos: Id, Email, Password, Nombres, Rol [ADMIN, TERAPEUTA]).
+- [x] Construir la entidad separada `Patient` (Campos: Id, Email, Password, Nombres, Teléfono). Los pacientes no se mezclan con los usuarios del panel.
+- [ ] Módulo **Auth**: Implementar Login independiente (Login de Staff vs Login de Pacientes) usando JWT.
 - [ ] Módulo **Users**: Endpoints de CRUD para administración de cuentas y actualización de perfil, protegiendo rutas sensibles con `Guards`.
 
 ## 🩺 Fase 3: Módulo Clínico (Gestión Privada)
@@ -34,3 +34,12 @@ Este documento enumera las tareas requeridas para construir el motor de reglas d
 - [ ] **Guardrail de Negocio:** Lógica en el backend que impida mostrar la agenda de un Terapeuta si no tiene al menos un método de pago P2P validado.
 - [ ] Enlace del comprobante (Screenshot) generado directamente dentro del Payload de la reserva.
 - [ ] Endpoint para que el terapeuta pueda aprobar el pago (Confirmando la cita) o notificar que el clearing sigue pendiente, disparando alertas por WhatsApp/Email.
+
+## 📤 Fase 7: Almacenamiento de Archivos (Storage)
+- [ ] Configurar interceptores (`Multer`) para recibir archivos.
+- [ ] Modulo para guardar y servir de manera segura: Comprobantes de Pago P2P (Sensible) y Portadas del Blog / Avatares (Público).
+- [ ] Decidir si usar almacenamiento local (en disco) o servicio S3 (AWS/DigitalOcean).
+
+## 🔔 Fase 8: Módulo de Notificaciones
+- [ ] Configurar `@nestjs-modules/mailer` o integrador SMTP (Resend/SendGrid) para envío automático de notificaciones.
+- [ ] Crear plantillas HTML (con estilo "Sacred Sanctuary") para correos electrónicos (Bienvenida, Pago en Revisión, Envío de Link de Sesión).

@@ -1,0 +1,28 @@
+<div class="max-w-5xl mx-auto p-6 md:p-10">
+  @if (auth.staffUser(); as u) {
+    <h1 class="font-headline text-3xl text-slate-900 mb-2">Hola, {{ u.firstName }}</h1>
+    <p class="text-slate-600 mb-8">Resumen operativo de tu agenda.</p>
+  }
+
+  @if (loading()) {
+    <p class="text-slate-600">Cargando…</p>
+  } @else {
+    <div class="grid sm:grid-cols-3 gap-4 mb-10">
+      <div class="rounded-xl bg-white border border-slate-200 p-5 shadow-sm">
+        <p class="text-xs uppercase tracking-wide text-slate-500">Citas totales</p>
+        <p class="text-3xl font-semibold text-slate-900 mt-1">{{ rows().length }}</p>
+      </div>
+      <div class="rounded-xl bg-white border border-slate-200 p-5 shadow-sm">
+        <p class="text-xs uppercase tracking-wide text-slate-500">Pendientes de revisión</p>
+        <p class="text-3xl font-semibold text-amber-700 mt-1">{{ pendingCount() }}</p>
+      </div>
+      <a
+        routerLink="/terapeuta/agenda"
+        class="rounded-xl bg-sky-700 text-white p-5 shadow-sm flex flex-col justify-center hover:bg-sky-800 transition-colors"
+      >
+        <span class="text-sm font-medium opacity-90">Ver agenda completa</span>
+        <span class="material-symbols-outlined mt-2">arrow_forward</span>
+      </a>
+    </div>
+  }
+</div>

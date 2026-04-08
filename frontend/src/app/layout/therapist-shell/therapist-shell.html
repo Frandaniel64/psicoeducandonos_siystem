@@ -1,0 +1,60 @@
+<div class="min-h-screen flex bg-slate-950 text-slate-100">
+  <!-- Referencia visual: Stitch "Agenda y Calendario", "Directorio de Pacientes", "CMS de Artículos" — proyecto 16913179476535550712 -->
+  <aside
+    class="hidden lg:flex w-56 flex-col border-r border-slate-800 bg-slate-900 shrink-0"
+    aria-label="Navegación del terapeuta"
+  >
+    <div class="p-5 border-b border-slate-800">
+      <p class="font-headline text-lg text-sky-200">Staff clínico</p>
+      @if (auth.staffUser(); as u) {
+        <p class="text-xs text-slate-400 mt-1 truncate">{{ u.firstName }} {{ u.lastName }}</p>
+      }
+    </div>
+    <nav class="flex flex-col gap-0.5 p-3 flex-1">
+      <a
+        routerLink="/terapeuta"
+        routerLinkActive="bg-sky-600 text-white"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-slate-800 transition-colors"
+        >Resumen</a
+      >
+      <a
+        routerLink="/terapeuta/agenda"
+        routerLinkActive="bg-sky-600 text-white"
+        class="rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-slate-800 transition-colors"
+        >Agenda</a
+      >
+      <a
+        routerLink="/terapeuta/pacientes"
+        routerLinkActive="bg-sky-600 text-white"
+        class="rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-slate-800 transition-colors"
+        >Pacientes</a
+      >
+      <a
+        routerLink="/terapeuta/cms"
+        routerLinkActive="bg-sky-600 text-white"
+        class="rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-slate-800 transition-colors"
+        >CMS artículos</a
+      >
+    </nav>
+    <div class="p-3 border-t border-slate-800">
+      <button
+        type="button"
+        (click)="logout()"
+        class="w-full text-left rounded-lg px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+      >
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0 bg-slate-100 text-slate-900">
+    <header class="lg:hidden flex items-center justify-between px-4 py-3 bg-slate-900 text-slate-100">
+      <span class="font-headline text-sky-200">Terapeuta</span>
+      <button type="button" (click)="logout()" class="text-sm text-sky-300">Salir</button>
+    </header>
+    <main class="flex-1 overflow-auto">
+      <router-outlet />
+    </main>
+  </div>
+</div>

@@ -61,6 +61,11 @@ module.exports = {
         "label": ["Inter", "sans-serif"]
       },
       borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      boxShadow: {
+        soft: "0 4px 24px rgba(28, 96, 144, 0.08)",
+        "soft-lg": "0 12px 40px rgba(28, 96, 144, 0.12)",
+        warm: "0 8px 30px rgba(21, 26, 50, 0.06)",
+      },
     },
   },
   plugins: [

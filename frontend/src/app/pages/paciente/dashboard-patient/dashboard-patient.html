@@ -1,0 +1,36 @@
+<div class="max-w-3xl">
+  @if (auth.patient(); as p) {
+    <h1 class="font-headline text-3xl md:text-4xl text-on-background mb-2">
+      Hola, {{ p.firstName }}
+    </h1>
+    <p class="text-on-surface-variant mb-10">
+      Este es tu espacio para revisar citas, agendar sesiones y recursos que tu terapeuta comparta contigo.
+    </p>
+  }
+  <div class="grid sm:grid-cols-2 gap-4">
+    <a
+      routerLink="/paciente/citas"
+      class="rounded-2xl border border-outline-variant/20 bg-surface-container-lowest p-6 shadow-soft hover:shadow-soft-lg transition-shadow"
+    >
+      <span class="material-symbols-outlined text-primary text-3xl mb-3">event</span>
+      <h2 class="font-headline text-xl mb-1">Mis citas</h2>
+      <p class="text-sm text-on-surface-variant">Próximas sesiones y enlaces de videollamada.</p>
+    </a>
+    <a
+      routerLink="/paciente/agendar"
+      class="rounded-2xl border border-outline-variant/20 bg-surface-container-lowest p-6 shadow-soft hover:shadow-soft-lg transition-shadow"
+    >
+      <span class="material-symbols-outlined text-primary text-3xl mb-3">calendar_add_on</span>
+      <h2 class="font-headline text-xl mb-1">Agendar</h2>
+      <p class="text-sm text-on-surface-variant">Solicita una nueva cita con tu terapeuta.</p>
+    </a>
+    <a
+      routerLink="/paciente/biblioteca"
+      class="rounded-2xl border border-outline-variant/20 bg-surface-container-lowest p-6 shadow-soft hover:shadow-soft-lg transition-shadow sm:col-span-2"
+    >
+      <span class="material-symbols-outlined text-primary text-3xl mb-3">menu_book</span>
+      <h2 class="font-headline text-xl mb-1">Biblioteca</h2>
+      <p class="text-sm text-on-surface-variant">Materiales y devocionales asignados (próximamente con API).</p>
+    </a>
+  </div>
+</div>

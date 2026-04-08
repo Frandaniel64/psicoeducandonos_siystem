@@ -1,0 +1,29 @@
+<div class="max-w-4xl mx-auto p-6 md:p-10">
+  <h1 class="font-headline text-2xl text-slate-900 mb-1">Editor de artículos</h1>
+  <p class="text-sm text-slate-600 mb-6">
+    Formulario reactivo + Quill. La acción guardar quedará enlazada al API del CMS.
+  </p>
+  <form [formGroup]="form" (ngSubmit)="saveDraft()" class="space-y-4">
+    <div>
+      <label for="article-title" class="block text-sm font-medium text-slate-700 mb-1">Título</label>
+      <input
+        id="article-title"
+        formControlName="title"
+        type="text"
+        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 shadow-sm focus:border-sky-600 focus:ring-sky-600"
+        placeholder="Título del artículo"
+      />
+    </div>
+    <div
+      #editorHost
+      class="bg-white min-h-[320px] rounded-lg border border-slate-200 shadow-sm"
+    ></div>
+    <button
+      type="submit"
+      class="rounded-full bg-sky-700 text-white px-6 py-2.5 text-sm font-semibold hover:bg-sky-800 disabled:opacity-50"
+      [disabled]="form.invalid"
+    >
+      Guardar borrador (local)
+    </button>
+  </form>
+</div>
